@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fadhlurrahman Akwa Qinthara | Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --accent-blue-1: #5682b1;
+            --accent-blue-2: #739ec9;
+            --accent-peach: #ffe8db;
+            --text-main: #ffffff;
+            --text-muted: #d2e3fc;
+            --card-bg: rgba(15, 20, 30, 0.85);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            font-size: 0.95rem;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-blue-1);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue-2);
+        }
+
+        /* Compact Liquid Glass Floating Navbar Styling */
+        .navbar-container {
+            padding: 10px 0;
+            transition: all 0.4s ease;
+        }
+        
+        .navbar-liquid-glass {
+            background: rgba(10, 15, 25, 0.7);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(115, 158, 201, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 6px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--accent-peach) !important;
+            letter-spacing: 0.5px;
+            font-size: 1.1rem;
+        }
+        
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-weight: 500;
+            font-size: 0.88rem;
+            padding: 6px 12px !important;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue-1), var(--accent-peach));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 60%;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-peach) !important;
+        }
+
+        /* Hero Section - Centered Layout */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.3) 100%), 
+                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding-top: 60px; /* Reduced top padding to prevent empty top space */
+            padding-bottom: 30px;
+        }
+
+        .hero-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+        .hero-title span {
+            color: var(--accent-peach);
+        }
+        .typed-text {
+            color: var(--accent-blue-2);
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn-custom-primary {
+            background-color: var(--accent-blue-1);
+            color: var(--text-main);
+            border: none;
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-primary:hover {
+            background-color: var(--accent-blue-2);
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(86, 130, 177, 0.4);
+        }
+
+        .btn-custom-outline {
+            border: 1.5px solid var(--accent-blue-1);
+            color: var(--accent-peach);
+            background: transparent;
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-outline:hover {
+            background-color: var(--accent-blue-1);
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            text-align: center;
+        }
+        .section-title span {
+            color: var(--accent-blue-2);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 45px;
+            font-size: 0.98rem;
+        }
+
+        /* Cards & Glassmorphism */
+        .custom-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(86, 130, 177, 0.3);
+            border-radius: 14px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .custom-card:hover {
+            border-color: var(--accent-blue-2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(86, 130, 177, 0.2);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-blue-1), var(--accent-blue-2));
+            border-radius: 3px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background-color: var(--accent-peach);
+            border: 2px solid var(--accent-blue-1);
+            border-radius: 50%;
+        }
+
+        /* Skills Badges */
+        .skill-badge {
+            background-color: rgba(86, 130, 177, 0.25);
+            border: 1px solid var(--accent-blue-1);
+            color: var(--accent-peach);
+            padding: 6px 14px;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            background-color: var(--accent-blue-1);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Achievement filter buttons */
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--accent-blue-1);
+            color: var(--text-muted);
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            border-radius: 25px;
+            margin: 0 4px 8px 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--accent-blue-1);
+            color: var(--text-main);
+            border-color: var(--accent-blue-2);
+        }
+
+        /* Contact Form */
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(86, 130, 177, 0.4);
+            color: var(--text-main);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.9rem;
+        }
+        .form-control::placeholder {
+            color: #94a3b8;
+        }
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: var(--accent-blue-2);
+            color: var(--text-main);
+            box-shadow: 0 0 8px rgba(115, 158, 201, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            border-top: 1px solid rgba(86, 130, 177, 0.3);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+        footer a {
+            color: var(--accent-peach);
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: var(--accent-blue-2);
+        }
+
+        @media (max-width: 992px) {
+            .navbar-liquid-glass {
+                border-radius: 16px;
+                padding: 8px 16px;
+            }
+            .hero-title {
+                font-size: 2.1rem;
+            }
+            .hero-section {
+                background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%), 
+                            url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Compact Liquid Glass Floating Navbar -->
+    <div class="fixed-top navbar-container">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-liquid-glass">
+                <a class="navbar-brand ms-2" href="#hero">Akwa Qinthara</a>
+                <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon" style="width: 1.2em; height: 1.2em;"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                        <li class="nav-item ms-lg-3 mt-2 mt-lg-0"><a class="btn btn-custom-primary btn-sm px-3 py-1" href="#contact">Contact Me</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7" data-aos="fade-right" data-aos-duration="1000">
+                    <span class="badge px-3 py-2 rounded-pill mb-3" style="background-color: rgba(86,130,177,0.3); color: var(--accent-peach)!important; border: 1px solid var(--accent-blue-1); font-weight: 600; font-size: 0.82rem;">
+                        <i class="fas fa-code me-2"></i> Computer Science Undergraduate
+                    </span>
+                    <h1 class="hero-title mb-3">Hi, I'm <br><span>Fadhlurrahman Akwa Qinthara</span></h1>
+                    <h3 class="h5 mb-4" style="color: var(--text-muted);">A passionate <span class="typed-text"></span></h3>
+                    <p class="lead mb-4" style="max-width: 580px; color: var(--text-muted); font-size: 0.95rem; font-weight: 400;">
+                        Undergraduate Computer Science student at State University of Surabaya with high enthusiasm for digital problem-solving, critical thinking, teamwork, and leadership.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#contact" class="btn btn-custom-primary">Get in Touch</a>
+                        <a href="#about" class="btn btn-custom-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left" data-aos-duration="1000">
+                    <!-- Area transparan kanan untuk memperlihatkan foto background -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="section-title">About <span>Me</span></h2>
+                    <p class="section-subtitle">Get to know more about my background, passion, and objectives.</p>
+                </div>
+            </div>
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="custom-card">
+                        <h3 class="h5 mb-3" style="color: var(--accent-peach);">Professional Summary</h3>
+                        <p class="mb-3" style="color: var(--text-muted); line-height: 1.7; font-size: 0.92rem;">
+                            I am a Computer Science undergraduate at State University of Surabaya with a keen enthusiasm for technology and digital problem-solving. I actively engage in activities that bolster critical thinking, teamwork, and leadership skills.
+                        </p>
+                        <p class="mb-0" style="color: var(--text-muted); line-height: 1.7; font-size: 0.92rem;">
+                            Passionate about continuously advancing my technical knowledge—as evidenced by securing 4th place in the City-Level Informatics Science Olympiad (OSN)—I aspire to deepen my expertise and contribute meaningfully to society.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="custom-card text-center py-4">
+                                <i class="fas fa-graduation-cap fa-2x mb-2" style="color: var(--accent-blue-2);"></i>
+                                <h6 class="mb-1 text-white">Education</h6>
+                                <p class="small mb-0" style="color: var(--text-muted);">State University of Surabaya</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="custom-card text-center py-4">
+                                <i class="fas fa-medal fa-2x mb-2" style="color: var(--accent-peach);"></i>
+                                <h6 class="mb-1 text-white">OSN Medalist</h6>
+                                <p class="small mb-0" style="color: var(--text-muted);">City Level (2024)</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="custom-card text-center py-4">
+                                <i class="fas fa-certificate fa-2x mb-2" style="color: var(--accent-blue-2);"></i>
+                                <h6 class="mb-1 text-white">Certified</h6>
+                                <p class="small mb-0" style="color: var(--text-muted);">Google Gemini Student</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="custom-card text-center py-4">
+                                <i class="fas fa-map-marker-alt fa-2x mb-2" style="color: var(--accent-peach);"></i>
+                                <h6 class="mb-1 text-white">Location</h6>
+                                <p class="small mb-0" style="color: var(--text-muted);">Padang, Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background-color: rgba(15, 20, 30, 0.4);">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Educational <span>Journey</span></h2>
+            <p class="section-subtitle" data-aos="fade-up">My academic background and milestones.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline" data-aos="fade-up">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="custom-card">
+                                <span class="badge mb-2 px-2 py-1" style="background-color: var(--accent-blue-1); color: white; font-weight: 600; font-size: 0.78rem;">Aug 2026 - Present</span>
+                                <h4 class="h6 text-white mb-1">Bachelor of Computer Science</h4>
+                                <h6 style="color: var(--accent-peach); font-size: 0.88rem;" class="mb-2">State University of Surabaya - Surabaya, Indonesia</h6>
+                                <p class="mb-0" style="color: var(--text-muted); font-size: 0.9rem;">Pursuing higher education in Computer Science to build deep technical foundations and engineering skills.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="custom-card">
+                                <span class="badge mb-2 px-2 py-1" style="background-color: var(--accent-blue-1); color: white; font-weight: 600; font-size: 0.78rem;">Jul 2023 - Jun 2026</span>
+                                <h4 class="h6 text-white mb-1">High School Science Major</h4>
+                                <h6 style="color: var(--accent-peach); font-size: 0.88rem;" class="mb-2">Ar-Risalah Islamic Boarding School - Padang, Indonesia (Score: 90.65/100)</h6>
+                                <ul class="ps-3 mb-0" style="color: var(--text-muted); font-size: 0.9rem;">
+                                    <li>Secured 4th place in the National Science Olympiad (OSN) at Padang City level and advanced to Provincial level (2024).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Volunteer Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Volunteer & <span>Leadership</span></h2>
+            <p class="section-subtitle" data-aos="fade-up">My organizational contributions and community engagement.</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="custom-card">
+                        <span class="badge mb-2 px-2 py-1" style="background-color: var(--accent-blue-2); color: #000; font-weight: 600; font-size: 0.78rem;">Aug 2024 - Nov 2024</span>
+                        <h4 class="h6 text-white mb-1">Event Organizer - School Organization Election</h4>
+                        <h6 style="color: var(--accent-peach); font-size: 0.88rem;" class="mb-2">Student Council of Ar-Risalah</h6>
+                        <p class="mb-0" style="color: var(--text-muted); font-size: 0.9rem;">Served as a committee member for school leadership elections resembling the Indonesian General Election (KPU), managing general voting, candidate speeches, and presidential debates.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="custom-card">
+                        <span class="badge mb-2 px-2 py-1" style="background-color: var(--accent-blue-2); color: #000; font-weight: 600; font-size: 0.78rem;">Sep 2025 - Jan 2026</span>
+                        <h4 class="h6 text-white mb-1">Language Tutor Assistant</h4>
+                        <h6 style="color: var(--accent-peach); font-size: 0.88rem;" class="mb-2">Ar-Risalah Islamic Boarding School</h6>
+                        <p class="mb-0" style="color: var(--text-muted); font-size: 0.9rem;">Mentored and educated junior students in foreign languages (English and Arabic) as part of the school language agency program.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="custom-card">
+                        <span class="badge mb-2 px-2 py-1" style="background-color: var(--accent-blue-2); color: #000; font-weight: 600; font-size: 0.78rem;">Nov 2024</span>
+                        <h4 class="h6 text-white mb-1">System Operator</h4>
+                        <h6 style="color: var(--accent-peach); font-size: 0.88rem;" class="mb-2">The Closing Ceremony Open House XX</h6>
+                        <p class="mb-0" style="color: var(--text-muted); font-size: 0.9rem;">Managed screen and sound systems successfully as committee member during the school's major open house event.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="custom-card">
+                        <span class="badge mb-2 px-2 py-1" style="background-color: var(--accent-blue-2); color: #000; font-weight: 600; font-size: 0.78rem;">Jun 2023 - Jul 2026</span>
+                        <h4 class="h6 text-white mb-1">Student Council Member</h4>
+                        <h6 style="color: var(--accent-peach); font-size: 0.88rem;" class="mb-2">Ar-Risalah Islamic Boarding School</h6>
+                        <p class="mb-0" style="color: var(--text-muted); font-size: 0.9rem;">Actively participated in planning and executing various academic and non-academic school events.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Languages Section -->
+    <section id="skills" style="background-color: rgba(15, 20, 30, 0.4);">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Skills & <span>Languages</span></h2>
+            <p class="section-subtitle" data-aos="fade-up">Technical proficiencies, soft skills, and language competencies.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="custom-card">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h4 class="h6 mb-3" style="color: var(--accent-peach);"><i class="fas fa-tools me-2"></i> Hard Skills</h4>
+                                <div>
+                                    <span class="skill-badge">Dev C++</span>
+                                    <span class="skill-badge">Visual Studio Code</span>
+                                    <span class="skill-badge">MS PowerPoint</span>
+                                    <span class="skill-badge">Filmora</span>
+                                    <span class="skill-badge">Canva</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="h6 mb-3" style="color: var(--accent-peach);"><i class="fas fa-brain me-2"></i> Soft Skills</h4>
+                                <div>
+                                    <span class="skill-badge">Communication</span>
+                                    <span class="skill-badge">Problem Solving</span>
+                                    <span class="skill-badge">Logical Thinking</span>
+                                    <span class="skill-badge">Adaptability</span>
+                                    <span class="skill-badge">Time Management</span>
+                                    <span class="skill-badge">Teamwork</span>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3 pt-3 border-top border-secondary border-opacity-25">
+                                <h4 class="h6 mb-3" style="color: var(--accent-peach);"><i class="fas fa-language me-2"></i> Languages</h4>
+                                <div>
+                                    <span class="skill-badge">Indonesian | Proficient</span>
+                                    <span class="skill-badge">English | Intermediate</span>
+                                    <span class="skill-badge">Korean | Beginner</span>
+                                    <span class="skill-badge">Arabic | Beginner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Awards & <span>Achievements</span></h2>
+            <p class="section-subtitle" data-aos="fade-up">Recognition and accomplishments throughout my academic journey.</p>
+            
+            <div class="row justify-content-center mb-4" data-aos="fade-up">
+                <div class="col-auto text-center">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="olympiad">Olympiads</button>
+                    <button class="filter-btn" data-filter="writing">Writing & Essay</button>
+                    <button class="filter-btn" data-filter="cert">Certifications</button>
+                </div>
+            </div>
+
+            <div class="row g-4" id="achievement-list">
+                <div class="col-md-4 item" data-category="olympiad" data-aos="fade-up" data-aos-delay="100">
+                    <div class="custom-card text-center py-4">
+                        <i class="fas fa-trophy fa-2x mb-3" style="color: var(--accent-peach);"></i>
+                        <h5 class="h6 text-white mb-2">4th Place - National Science Olympiad (OSN)</h5>
+                        <p class="small mb-0" style="color: var(--text-muted);">City Level (2024), advancing to Provincial level.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 item" data-category="cert" data-aos="fade-up" data-aos-delay="200">
+                    <div class="custom-card text-center py-4">
+                        <i class="fas fa-award fa-2x mb-3" style="color: var(--accent-blue-2);"></i>
+                        <h5 class="h6 text-white mb-2">Google-Certified Gemini Student</h5>
+                        <p class="small mb-0" style="color: var(--text-muted);">Certified student program (2026).</p>
+                    </div>
+                </div>
+                <div class="col-md-4 item" data-category="writing" data-aos="fade-up" data-aos-delay="300">
+                    <div class="custom-card text-center py-4">
+                        <i class="fas fa-pen-nib fa-2x mb-3" style="color: var(--accent-peach);"></i>
+                        <h5 class="h6 text-white mb-2">1st Place - Short Story Competition</h5>
+                        <p class="small mb-0" style="color: var(--text-muted);">School Writing Competition (2022).</p>
+                    </div>
+                </div>
+                <div class="col-md-4 item" data-category="olympiad" data-aos="fade-up" data-aos-delay="400">
+                    <div class="custom-card text-center py-4">
+                        <i class="fas fa-medal fa-2x mb-3" style="color: var(--accent-blue-2);"></i>
+                        <h5 class="h6 text-white mb-2">3rd Place - Smart Children Olympiad</h5>
+                        <p class="small mb-0" style="color: var(--text-muted);">General Knowledge Olympiad, 11th Edition (2020).</p>
+                    </div>
+                </div>
+                <div class="col-md-4 item" data-category="olympiad" data-aos="fade-up" data-aos-delay="500">
+                    <div class="custom-card text-center py-4">
+                        <i class="fas fa-calculator fa-2x mb-3" style="color: var(--accent-peach);"></i>
+                        <h5 class="h6 text-white mb-2">5th Place - Tensai 10th Olympiad</h5>
+                        <p class="small mb-0" style="color: var(--text-muted);">Mathematics Field Olympiad (2020).</p>
+                    </div>
+                </div>
+                <div class="col-md-4 item" data-category="writing" data-aos="fade-up" data-aos-delay="600">
+                    <div class="custom-card text-center py-4">
+                        <i class="fas fa-file-alt fa-2x mb-3" style="color: var(--accent-blue-2);"></i>
+                        <h5 class="h6 text-white mb-2">Top 151 - Essay Competition</h5>
+                        <p class="small mb-0" style="color: var(--text-muted);">SFL Chapter 8: Japan Essay Competition (2024).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: rgba(15, 20, 30, 0.4);">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get In <span>Touch</span></h2>
+            <p class="section-subtitle" data-aos="fade-up">Feel free to reach out for collaborations or inquiries.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="custom-card p-4">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label text-white fw-medium small">Your Name</label>
+                                    <input type="text" class="form-control" placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-white fw-medium small">Your Email</label>
+                                    <input type="email" class="form-control" placeholder="john@example.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label text-white fw-medium small">Subject</label>
+                                    <input type="text" class="form-control" placeholder="Collaboration / Inquiry" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label text-white fw-medium small">Message</label>
+                                    <textarea class="form-control" rows="4" placeholder="Write your message here..." required></textarea>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-custom-primary px-4">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="mb-2" style="color: var(--text-muted);">&copy; 2026 Fadhlurrahman Akwa Qinthara. All Rights Reserved.</p>
+            <div class="d-flex justify-content-center gap-3 fs-6 mt-2">
+                <a href="https://www.linkedin.com/in/akwaqinthara/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:akwaqinthara@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Typed.js & AOS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Initialize Typed.js
+        const typed = new Typed('.typed-text', {
+            strings: ['Computer Science Student', 'OSN Informatics Medalist', 'Google-Certified Gemini Student', 'Tech Enthusiast'],
+            typeSpeed: 60,
+            backSpeed: 40,
+            loop: true
+        });
+
+        // Achievement Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const achievementItems = document.querySelectorAll('#achievement-list .item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+
+                achievementItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
